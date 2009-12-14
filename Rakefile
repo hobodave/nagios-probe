@@ -5,9 +5,9 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "nagios-probe"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "github@hobodave.com"
+    gem.summary = "A very simple tool to assist with creating custom nagios probes in Ruby"
+    gem.description = "Provides an easy to use API for generating custom probes and communicating probe success/failure to Nagios"
+    gem.email = "dave@hobodave.com"
     gem.homepage = "http://github.com/hobodave/nagios-probe"
     gem.authors = ["David Abdemoulaie"]
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
