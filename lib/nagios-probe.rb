@@ -14,24 +14,21 @@ module Nagios
     end
 
     def crit?
-      is_crit = check_crit
-      return false unless is_crit
+      return false unless check_crit
       @retval = CRITICAL
       @message = "Critical: #{crit_message}"
       true
     end
 
     def warn?
-      is_warn = check_warn
-      return false unless is_warn
+      return false unless check_warn
       @retval = WARNING
       @message = "Warning: #{warn_message}"
       true
     end
 
     def ok?
-      is_ok = check_ok
-      return false unless is_ok
+      return false unless check_ok
       @retval = OK
       @message = "OK: #{ok_message}"
       true
