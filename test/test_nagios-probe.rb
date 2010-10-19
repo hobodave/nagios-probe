@@ -38,5 +38,10 @@ class TestNagiosProbe < Test::Unit::TestCase
         @bad.run
       end
     end
+
+    should "return unkown exit statis when exception is raised during explicit run!" do
+      system "ruby #{File.join(File.dirname(__FILE__), "bad_probe.rb > /dev/null")}"
+      assert_equal Nagios::UNKNOWN, $?.exitstatus
+    end
   end
 end

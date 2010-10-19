@@ -65,6 +65,15 @@ module Nagios
       end
     end
 
+    def run!
+      begin
+        run
+      rescue Exception => e
+        puts "Unknown: #{e}"
+        exit UNKNOWN
+      end
+    end
+
     def crit_message
       "Default message - override crit_message."
     end
