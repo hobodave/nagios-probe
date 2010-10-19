@@ -42,7 +42,6 @@ module Nagios
       if !crit?
         if !warn?
           if !ok?
-            @retval = UNKNOWN
             raise RuntimeError, "crit? warn? and ok? all returned false"
           end
         end
