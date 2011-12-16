@@ -1,22 +1,4 @@
-require 'rubygems'
-require 'rake'
-
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "nagios-probe"
-    gem.summary = "A very simple tool to assist with creating custom nagios probes in Ruby"
-    gem.description = "Provides an easy to use API for generating custom probes and communicating probe success/failure to Nagios"
-    gem.email = "dave@hobodave.com"
-    gem.homepage = "http://github.com/hobodave/nagios-probe"
-    gem.authors = ["David Abdemoulaie"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
-  end
-  Jeweler::GemcutterTasks.new
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
-end
+require "bundler/gem_tasks"
 
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
@@ -37,8 +19,6 @@ rescue LoadError
     abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
   end
 end
-
-task :test => :check_dependencies
 
 task :default => :test
 
