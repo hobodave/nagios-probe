@@ -14,18 +14,7 @@ Feature: Exit Status
 	      def warn_message;	"Things aren't going well" end
 	      def ok_message;		"Nothing to see here" end
 	    end
-			
-			begin
-	      options = {} # Nagios::Probe constructor accepts a single optional param that is assigned to @opts
-	      probe = MyProbe.new(options)
-	      probe.run
-	    rescue Exception => e
-	      puts "Unknown: " + e
-	      exit Nagios::UNKNOWN
-	    end
-
-	    puts probe.message
-	    exit probe.retval
+			MyProbe.run!
 			"""
 		When I run `ruby check_foo`
 		Then the exit status should be <exit>
@@ -50,18 +39,7 @@ Feature: Exit Status
   		  def check_warn;		false end
 				def check_ok;			false end
   		end
-			
-			begin
-  		  options = {} # Nagios::Probe constructor accepts a single optional param that is assigned to @opts
-  		  probe = MyProbe.new(options)
-  		  probe.run
-  		rescue Exception => e
-  		  puts "Unknown: " + e.to_s
-  		  exit Nagios::UNKNOWN
-  		end
-  		
-  		puts probe.message
-  		exit probe.retval
+			MyProbe.run!
 			"""
 		When I run `ruby check_bar`
 		Then the exit status should be 3
