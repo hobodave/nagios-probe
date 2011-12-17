@@ -41,19 +41,9 @@ Simply create a subclass of Nagios::Probe and define the following methods:
       end
     end
 
-To use your probe you *must* wrap it in a begin/rescue block to catch any exceptions and accurately report the status to Nagios.
+Then just call the run! method on your class to return a nagios-compatible output and exit status:
 
-    begin
-      options = {} # Nagios::Probe constructor accepts a single optional param that is assigned to @opts
-      probe = MyProbe.new(options)
-      probe.run
-    rescue Exception => e
-      puts "Unknown: " + e
-      exit Nagios::UNKNOWN
-    end
-
-    puts probe.message
-    exit probe.retval
+    MyProbe.run!
 
 == Note on Patches/Pull Requests
 
