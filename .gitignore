@@ -18,4 +18,11 @@ coverage
 rdoc
 pkg
 
-## PROJECT::SPECIFIC
+## Bundler
+*.gem
+.bundle
+Gemfile.lock
+pkg/*
+
+## Aruba
+tmp/*
