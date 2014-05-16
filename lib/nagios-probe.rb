@@ -60,5 +60,17 @@ module Nagios
     def ok_message
       "Default message - override ok_message."
     end
+    
+    def self.run!(options = {})
+      begin
+	      probe = self.new(options)
+	      probe.run
+	    rescue Exception => e
+	      puts "Unknown: " + e.to_s
+	      exit Nagios::UNKNOWN
+	    end
+	    puts probe.message
+	    exit probe.retval
+    end
   end
 end
